@@ -1,0 +1,40 @@
+﻿<Window x:Class="StickyNotes.MainWindow" WindowState="Maximized"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:UserControl="clr-namespace:StickyNotes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="425" Width="835" Background="#d2e6fa">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="835" Height="425">
+        <DockPanel>
+            <DockPanel Height="420">
+                <UserControl:MainStickyNoteUC DataContext="{Binding NoteViewModels[0]}" VerticalAlignment="Top" Height="410" Width="410"></UserControl:MainStickyNoteUC>
+            </DockPanel>
+            <ScrollViewer MaxHeight="420" VerticalScrollBarVisibility="Auto">
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="210"/>
+                    <ColumnDefinition Width="210"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                <UserControl:StickyNoteUC Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>
+                <UserControl:StickyNoteUC Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>
+                <UserControl:StickyNoteUC Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>
+                    <Button x:Name="AddNewNoteButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource addNewNoteButtonStyle}" Height="200" Width="200" Margin="0,0,10,10" Click="AddNewNoteButton_Click">
+                        <StackPanel>
+                            <iconPacks:PackIconBootstrapIcons Kind="PlusLg" HorizontalAlignment="Center" Height="50" Width="50" Margin="0,0,0,20" />
+                            <TextBlock>NEW NOTE</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>
