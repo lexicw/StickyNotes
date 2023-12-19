@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Add New Sticky Note" Height="475" Width="550">
+        Title="Add New Sticky Note" Height="475" Width="500">
     <Grid Margin="40,15,40,0">
         <StackPanel>
             <TextBlock x:Name="addNewNote" Text="Add New Sticky Note" FontSize="25" Margin="0,10,0,10" FontWeight="Bold"/>
@@ -21,18 +21,14 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="BorderThickness" Value="4"/>
+                                <Setter Property="BorderBrush" Value="#2a8ede"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Cursor" Value="Hand"/>
                             </Trigger>
                         </Style.Triggers>
-                        <Setter Property="BorderThickness" Value="0"/>
-                        <Setter Property="BorderBrush" Value="#2a8ede"/>
-                        <Setter Property="Effect">
-                            <Setter.Value>
-                                <DropShadowEffect Color="Black" Direction="0" ShadowDepth="0" Opacity="0.3" BlurRadius="2"/>
-                            </Setter.Value>
-                        </Setter>
+                        <Setter Property="BorderThickness" Value="0.8"/>
+                        <Setter Property="BorderBrush" Value="#1A000000"/>
 
                         <Setter Property="Template">
                             <Setter.Value>
@@ -40,10 +36,11 @@
                                     <Border BorderThickness="{TemplateBinding BorderThickness}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 Background="{TemplateBinding Background}"
-                                Margin="0,0,15,0"
-                                Width="60"
-                                Height="60"
+                                Margin="0,0,13,0"
+                                Width="70"
+                                Height="70"
                                 CornerRadius="0">
+
                                     </Border>
                                 </ControlTemplate>
                             </Setter.Value>
@@ -51,20 +48,17 @@
                     </Style>
                 </DockPanel.Resources>
 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <StackPanel x:Name="ColorStackPanel" Orientation="Horizontal" Margin="0,0,0,10">
                     <RadioButton Style="{StaticResource Color}" Background="White" IsChecked="True"/>
-                    <RadioButton Style="{StaticResource Color}" Background="#d5e6de"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#e4f0ea"/>
                     <RadioButton Style="{StaticResource Color}" Background="#f3d8da"/>
                     <RadioButton Style="{StaticResource Color}" Background="#fdf3d1"/>
                     <RadioButton Style="{StaticResource Color}" Background="LightGray"/>
                 </StackPanel>
             </DockPanel>
-
-
-
-
+            
             <Label Style="{StaticResource mainLabelStyle}">Text:</Label>
-            <TextBox Style="{StaticResource mainTextBoxStyle}" Height="100"></TextBox>
+            <TextBox Style="{StaticResource mainTextBoxStyle}" Height="100" Text="{Binding Text, Mode=TwoWay}"></TextBox>
                     <DockPanel Margin="0,30,0,0">
                 <Button Style="{StaticResource addButtonStyle}" Width="175" HorizontalAlignment="Left" Click="AddNewNoteButton_Click">
                     <DockPanel>

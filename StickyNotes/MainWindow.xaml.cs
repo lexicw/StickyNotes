@@ -21,28 +21,24 @@ namespace StickyNotes
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<StickyNoteViewModel> noteViewModels = new ObservableCollection<StickyNoteViewModel>();
-
         public MainWindow()
         {
             InitializeComponent();
+            StickyNotesList = new ObservableCollection<StickyNoteViewModel>();
             DataContext = this;
-
-            var initialNote = new StickyNoteViewModel();
-            noteViewModels.Add(initialNote);
         }
 
-        public ObservableCollection<StickyNoteViewModel> NoteViewModels
-        {
-            get { return noteViewModels; }
-            set { noteViewModels = value; }
-        }
-
+        public ObservableCollection<StickyNoteViewModel> StickyNotesList { get; set; }
 
         private void AddNewNoteButton_Click(object sender, RoutedEventArgs e)
         {
-            AddNewStickyNoteWindow addNoteWindow = new AddNewStickyNoteWindow(noteViewModels);
-            addNoteWindow.ShowDialog();
+            var stickyNoteViewModel = new StickyNoteViewModel();
+
+            AddNewStickyNoteWindow addNoteWindow = new AddNewStickyNoteWindow(stickyNoteViewModel);
+            if(addNoteWindow.ShowDialog() == true)
+            {
+                StickyNotesList.Add(stickyNoteViewModel);
+            }
         }
     }
 }

@@ -29,9 +29,10 @@
         </Style>
 
         <Style TargetType="Button" x:Key="roundButtonStyle">
-            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="BorderBrush" Value="#33000000"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="Background" Value="#eee"></Setter>
+            <Setter Property="Background" Value="#80FFFFFF"></Setter>
             <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
@@ -59,7 +60,7 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Cursor" Value="Hand"/>
-                    <Setter Property="Background" Value="#d1d1d1"/>
+                    <Setter Property="Background" Value="#CCFFFFFF"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -92,10 +93,11 @@
             <Setter Property="BorderThickness" Value="1"></Setter>
             <Style.Triggers>
                 <Trigger Property="IsFocused" Value="true">
-                    <Setter Property="BorderBrush" Value="#2a8ede"/>
+                    <Setter Property="BorderBrush" Value="#802a8ede"/>
+                    <Setter Property="BorderThickness" Value="2"/>
                     <Setter Property="Effect">
                         <Setter.Value>
-                            <DropShadowEffect Color="#772a8ede" Direction="0" ShadowDepth="0" Opacity="1" BlurRadius="7"/>
+                            <DropShadowEffect Color="#802a8ede" Direction="0" ShadowDepth="0" Opacity="1" BlurRadius="4"/>
                         </Setter.Value>
                     </Setter>
                 </Trigger>
