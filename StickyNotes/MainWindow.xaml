@@ -10,44 +10,36 @@
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="850" Height="425" d:DataContext="{d:DesignInstance local:MainWindow}">
         <DockPanel>
             <DockPanel Height="420">
-                <!--<UserControl:MainStickyNoteUC DataContext="{Binding StickyNotesList[0]}" VerticalAlignment="Top" Height="410" Width="410"></UserControl:MainStickyNoteUC>-->
-                <UserControl:MainStickyNoteUC Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Height="410" Width="410"></UserControl:MainStickyNoteUC>
-                
+                <UserControl:MainStickyNoteUC DataContext="{Binding StickyNotesList[0]}" VerticalAlignment="Top" Height="410" Width="410"></UserControl:MainStickyNoteUC>
             </DockPanel>
             <ScrollViewer MaxHeight="420" VerticalScrollBarVisibility="Auto">
-            <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="210"/>
-                    <ColumnDefinition Width="210"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-                    <ItemsControl ItemsSource="{Binding StickyNotesList}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="{x:Type local:StickyNoteViewModel}">
-                                <UserControl:StickyNoteUC Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <WrapPanel Width="420">
+                        <ItemsControl ItemsSource="{Binding StickyNotesList}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="2" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
 
-                    <!--<UserControl:StickyNoteUC Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>
-                    <UserControl:StickyNoteUC Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>
-                    <UserControl:StickyNoteUC Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>-->
-
-                    <Button x:Name="AddNewNoteButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource addNewNoteButtonStyle}" 
-                            Height="200" Width="200" Margin="0,0,10,10" Click="AddNewNoteButton_Click">
-                        <StackPanel>
-                            <iconPacks:PackIconBootstrapIcons Kind="PlusLg" HorizontalAlignment="Center" Height="50" Width="50" Margin="0,0,0,20" />
-                            <TextBlock>NEW NOTE</TextBlock>
-                        </StackPanel>
-                    </Button>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type local:StickyNoteViewModel}">
+                                    <UserControl:StickyNoteUC VerticalAlignment="Top" Height="200" Width="200"></UserControl:StickyNoteUC>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Button x:Name="AddNewNoteButton" Style="{StaticResource addNewNoteButtonStyle}" HorizontalAlignment="Left" Height="200" Width="200" Margin="0,0,10,10" Click="AddNewNoteButton_Click">
+                            <StackPanel>
+                                <iconPacks:PackIconBootstrapIcons Kind="PlusLg" HorizontalAlignment="Center" Height="50" Width="50" Margin="0,0,0,20" />
+                                <TextBlock>NEW NOTE</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
                 </Grid>
             </ScrollViewer>
         </DockPanel>

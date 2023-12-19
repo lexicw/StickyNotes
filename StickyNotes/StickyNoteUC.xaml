@@ -9,9 +9,9 @@
     <Grid>
         <StackPanel>
             <DockPanel>
-                <TextBlock FontWeight="Bold" FontSize="15" Text="Date"></TextBlock>
+                <TextBlock FontWeight="Bold" FontSize="15" Text="{Binding Date}"></TextBlock>
             </DockPanel>
-            <TextBlock Text="Text" TextWrapping="Wrap" Foreground="#D9000000" Margin="0,5,0,0" FontSize="12"></TextBlock>
+            <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Foreground="#D9000000" Margin="0,5,0,0" FontSize="12"></TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

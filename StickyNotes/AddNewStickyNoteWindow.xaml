@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="Add New Sticky Note" Height="475" Width="500">
+    <Window.Resources>
+        <local:EqualityToBoolConverter x:Key="EqualityToBoolConverter"/>
+    </Window.Resources>
     <Grid Margin="40,15,40,0">
         <StackPanel>
             <TextBlock x:Name="addNewNote" Text="Add New Sticky Note" FontSize="25" Margin="0,10,0,10" FontWeight="Bold"/>
@@ -49,11 +52,11 @@
                 </DockPanel.Resources>
 
                 <StackPanel x:Name="ColorStackPanel" Orientation="Horizontal" Margin="0,0,0,10">
-                    <RadioButton Style="{StaticResource Color}" Background="White" IsChecked="True"/>
-                    <RadioButton Style="{StaticResource Color}" Background="#e4f0ea"/>
-                    <RadioButton Style="{StaticResource Color}" Background="#f3d8da"/>
-                    <RadioButton Style="{StaticResource Color}" Background="#fdf3d1"/>
-                    <RadioButton Style="{StaticResource Color}" Background="LightGray"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#FFFFFF" IsChecked="True" Click="ColorRadioButton_Click"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#e4f0ea" Click="ColorRadioButton_Click"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#f3d8da" Click="ColorRadioButton_Click"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#fdf3d1" Click="ColorRadioButton_Click"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#eeeeee" Click="ColorRadioButton_Click"/>
                 </StackPanel>
             </DockPanel>
             
@@ -65,7 +68,6 @@
                         <iconPacks:PackIconBootstrapIcons Kind="CardText" HorizontalAlignment="Center" Height="25" Width="25" Margin="0,1,10,0" />
                         <TextBlock>ADD NOTE</TextBlock>
                     </DockPanel>
-
                 </Button>
             </DockPanel>
         </StackPanel>
