@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel>
             <DockPanel>
-                <TextBlock FontWeight="Bold" FontSize="26" Text="{Binding Date}"></TextBlock>
+                <TextBlock FontWeight="Bold" FontSize="24" Text="{Binding Date}"></TextBlock>
                 <Button Width="40" Height="40" HorizontalAlignment="Right" Style="{StaticResource roundButtonStyle}" ToolTip="Sticky Note Options" ToolTipService.InitialShowDelay="0">
                     <Button.Resources>
                         <ContextMenu x:Key="ContextMenuKey" Background="White" Foreground="Black" Padding="8">
@@ -45,8 +45,8 @@
                     </Button.Triggers>
                 </Button>
             </DockPanel>
-            <TextBlock x:Name="NoteTextBlock" Text="{Binding Text}" TextWrapping="Wrap" Foreground="#D9000000" Margin="0,10,0,0" FontSize="24"></TextBlock>
-            <TextBox x:Name="NoteTextBox" Text="{Binding Text}" TextWrapping="Wrap" Foreground="#D9000000" Margin="0,10,0,0" FontSize="24" Visibility="Collapsed" LostFocus="NoteTextBox_LostFocus"/>
+            <TextBlock x:Name="NoteTextBlock" Text="{Binding Text}" TextWrapping="Wrap" Foreground="#D9000000" Margin="0,10,0,0" FontSize="22"></TextBlock>
+            <TextBox x:Name="NoteTextBox" Text="{Binding Text}" TextWrapping="Wrap" Foreground="#D9000000" Margin="0,10,0,0" FontSize="22" Visibility="Collapsed" LostFocus="NoteTextBox_LostFocus"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -6,12 +6,18 @@
         xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:UserControl="clr-namespace:StickyNotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="425" Width="850" Background="#d2e6fa">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="850" Height="425" d:DataContext="{d:DesignInstance local:MainWindow}">
+        Title="MainWindow" Height="425" Width="800" Background="#d2e6fa">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="425" d:DataContext="{d:DesignInstance local:MainWindow}">
         <DockPanel>
-            <DockPanel Height="420">
-                <UserControl:MainStickyNoteUC DataContext="{Binding StickyNotesList[0]}" VerticalAlignment="Top" Height="410" Width="410"></UserControl:MainStickyNoteUC>
-            </DockPanel>
+            <StackPanel Height="420">
+                <Button x:Name="AddNewNoteButton" Style="{StaticResource addNewNoteButtonStyle}" HorizontalAlignment="Left" Height="50" Width="350" Margin="0,0,10,10" Click="AddNewNoteButton_Click">
+                    <DockPanel>
+                        <iconPacks:PackIconBootstrapIcons Kind="PlusLg" HorizontalAlignment="Center" Height="20" Width="20" Margin="0,3,10,0" />
+                        <TextBlock FontSize="20">ADD NEW STICKY NOTE</TextBlock>
+                    </DockPanel>
+                </Button>
+                <UserControl:MainStickyNoteUC DataContext="{Binding StickyNotesList[0]}" VerticalAlignment="Top" Height="350" Width="350"></UserControl:MainStickyNoteUC>
+            </StackPanel>
             <ScrollViewer MaxHeight="420" VerticalScrollBarVisibility="Auto">
                 <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Grid.ColumnDefinitions>
@@ -33,12 +39,6 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                        <Button x:Name="AddNewNoteButton" Style="{StaticResource addNewNoteButtonStyle}" HorizontalAlignment="Left" Height="200" Width="200" Margin="0,0,10,10" Click="AddNewNoteButton_Click">
-                            <StackPanel>
-                                <iconPacks:PackIconBootstrapIcons Kind="PlusLg" HorizontalAlignment="Center" Height="50" Width="50" Margin="0,0,0,20" />
-                                <TextBlock>NEW NOTE</TextBlock>
-                            </StackPanel>
-                        </Button>
                     </WrapPanel>
                 </Grid>
             </ScrollViewer>
