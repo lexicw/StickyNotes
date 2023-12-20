@@ -16,7 +16,18 @@
                         <TextBlock FontSize="20">ADD NEW STICKY NOTE</TextBlock>
                     </DockPanel>
                 </Button>
-                <UserControl:MainStickyNoteUC DataContext="{Binding StickyNotesList[0]}" VerticalAlignment="Top" Height="350" Width="350"></UserControl:MainStickyNoteUC>
+                <DockPanel>
+                    <DockPanel.Style>
+                        <Style TargetType="DockPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding StickyNotesList.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DockPanel.Style>
+                    <UserControl:MainStickyNoteUC DataContext="{Binding StickyNotesList[0]}" VerticalAlignment="Top" Height="350" Width="350"></UserControl:MainStickyNoteUC>
+                </DockPanel>
             </StackPanel>
             <ScrollViewer MaxHeight="420" VerticalScrollBarVisibility="Auto">
                 <Grid VerticalAlignment="Top" HorizontalAlignment="Left">

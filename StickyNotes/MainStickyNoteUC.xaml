@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              MouseDown="UserControl_MouseDown"
              Background="{Binding Color}" Margin="0,0,10,10" Padding="25" FontSize="16" Width="410" Height="425">
+
+
     <Grid>
         <StackPanel>
             <DockPanel>
