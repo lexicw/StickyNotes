@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:UserControl="clr-namespace:StickyNotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900" Background="#d2e6fa">
+        Title="Sticky Notes Application" Height="500" Width="1000" Background="#d2e6fa">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
