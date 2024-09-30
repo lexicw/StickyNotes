@@ -23,7 +23,6 @@ namespace StickyNotes
         public StickyNoteUC()
         {
             InitializeComponent();
-            DataContext = new StickyNoteViewModel();
         }
     }
 }

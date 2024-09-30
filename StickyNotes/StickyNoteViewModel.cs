@@ -11,7 +11,12 @@ namespace StickyNotes
     {
         private StickyNote _stickyNote;
 
-        public StickyNote StickyNote
+        public StickyNoteViewModel()
+        {
+            _stickyNote = new StickyNote();
+        }
+
+        private StickyNote StickyNote
         {
             get => _stickyNote;
             set
@@ -21,15 +26,34 @@ namespace StickyNotes
             }
         }
 
-        public StickyNoteViewModel()
+        public DateTime Date
         {
-            // Initialize a default StickyNote
-            StickyNote = new StickyNote
+            get => StickyNote.Date;
+            set
             {
-                Date = DateTime.Now,
-                Text = "Sample Text",
-                Color = "White"
-            };
+                StickyNote.Date = value;
+                OnPropertyChanged(nameof(Date));
+            }
+        }
+
+        public string Text
+        {
+            get => StickyNote.Text;
+            set
+            {
+                StickyNote.Text = value;
+                OnPropertyChanged(nameof(Text));
+            }
+        }
+
+        public string Color
+        {
+            get => StickyNote.Color;
+            set
+            {
+                StickyNote.Color = value;
+                OnPropertyChanged(nameof(Color));
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

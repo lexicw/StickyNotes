@@ -6,12 +6,19 @@
         xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="Add New Sticky Note" Height="475" Width="550">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid Margin="40,15,40,0">
         <StackPanel>
-            <TextBlock x:Name="addNewNote" Text="Add New Sticky Note" FontSize="25" Margin="0,10,0,10" FontWeight="Bold"/>
+            <TextBlock x:Name="addNewNote" Text="Add New Sticky Note" FontSize="25" Margin="0,10,0,10" Foreground="Black" FontWeight="Bold"/>
 
 
-            <Label Style="{StaticResource mainLabelStyle}">Color:</Label>
+            <Label Style="{StaticResource mainLabelStyle}" Foreground="Black">Color:</Label>
             <DockPanel Grid.Row="0" Grid.Column="1">
                 <DockPanel.Resources>
                     <Style x:Key="Color" TargetType="RadioButton">
@@ -21,29 +28,26 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="BorderThickness" Value="4"/>
+                                <Setter Property="BorderBrush" Value="#2a8ede"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Cursor" Value="Hand"/>
                             </Trigger>
                         </Style.Triggers>
-                        <Setter Property="BorderThickness" Value="0"/>
-                        <Setter Property="BorderBrush" Value="#2a8ede"/>
-                        <Setter Property="Effect">
-                            <Setter.Value>
-                                <DropShadowEffect Color="Black" Direction="0" ShadowDepth="0" Opacity="0.3" BlurRadius="2"/>
-                            </Setter.Value>
-                        </Setter>
+                        <Setter Property="BorderThickness" Value="0.8"/>
+                        <Setter Property="BorderBrush" Value="#1A000000"/>
 
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="RadioButton">
                                     <Border BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                Background="{TemplateBinding Background}"
-                                Margin="0,0,15,0"
-                                Width="60"
-                                Height="60"
-                                CornerRadius="0">
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               Background="{TemplateBinding Background}"
+                               Margin="0,0,13,0"
+                               Width="70"
+                               Height="70"
+                               CornerRadius="0">
+
                                     </Border>
                                 </ControlTemplate>
                             </Setter.Value>
@@ -51,27 +55,23 @@
                     </Style>
                 </DockPanel.Resources>
 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <RadioButton Style="{StaticResource Color}" Background="White" IsChecked="True"/>
-                    <RadioButton Style="{StaticResource Color}" Background="#d5e6de"/>
-                    <RadioButton Style="{StaticResource Color}" Background="#f3d8da"/>
-                    <RadioButton Style="{StaticResource Color}" Background="#fdf3d1"/>
-                    <RadioButton Style="{StaticResource Color}" Background="LightGray"/>
+                <StackPanel x:Name="ColorStackPanel" Orientation="Horizontal" Margin="0,0,0,10">
+                    <RadioButton Style="{StaticResource Color}" Background="#FFFFFF" Click="ColorRadioButton_Click" Tag="#FFFFFF"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#e4f0ea" Click="ColorRadioButton_Click" Tag="#e4f0ea"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#f3d8da" Click="ColorRadioButton_Click" Tag="#f3d8da"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#fdf3d1" Click="ColorRadioButton_Click" Tag="#fdf3d1"/>
+                    <RadioButton Style="{StaticResource Color}" Background="#eeeeee" Click="ColorRadioButton_Click" Tag="#eeeeee"/>
                 </StackPanel>
             </DockPanel>
 
-
-
-
-            <Label Style="{StaticResource mainLabelStyle}">Text:</Label>
-            <TextBox Style="{StaticResource mainTextBoxStyle}" Height="100"></TextBox>
-                    <DockPanel Margin="0,30,0,0">
+            <Label Style="{StaticResource mainLabelStyle}" Foreground="Black">Text:</Label>
+            <TextBox Style="{StaticResource mainTextBoxStyle}" Height="100" Text="{Binding Text, Mode=TwoWay}" TextWrapping="Wrap" MaxLength="260"></TextBox>
+            <DockPanel Margin="0,20,0,0">
                 <Button Style="{StaticResource addButtonStyle}" Width="175" HorizontalAlignment="Left" Click="AddNewNoteButton_Click">
                     <DockPanel>
                         <iconPacks:PackIconBootstrapIcons Kind="CardText" HorizontalAlignment="Center" Height="25" Width="25" Margin="0,1,10,0" />
-                        <TextBlock>ADD NOTE</TextBlock>
+                        <TextBlock Foreground="White">SAVE NOTE</TextBlock>
                     </DockPanel>
-
                 </Button>
             </DockPanel>
         </StackPanel>

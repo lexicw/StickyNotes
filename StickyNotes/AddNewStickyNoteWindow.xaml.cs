@@ -21,23 +21,49 @@ namespace StickyNotes
     /// </summary>
     public partial class AddNewStickyNoteWindow : Window
     {
-        private ObservableCollection<StickyNoteViewModel> noteViewModels;
-
-        public AddNewStickyNoteWindow(ObservableCollection<StickyNoteViewModel> noteViewModels)
+        public AddNewStickyNoteWindow(StickyNoteViewModel stickyNoteViewModel)
         {
             InitializeComponent();
-            this.noteViewModels = noteViewModels;
+            ViewModel = stickyNoteViewModel;
+            DataContext = ViewModel;
+
+            ColorStackPanel.DataContext = this;
 
             Owner = Application.Current.MainWindow;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
+        public StickyNoteViewModel ViewModel { get; }
+
+
         private void AddNewNoteButton_Click(object sender, RoutedEventArgs e)
         {
-            var newNote = new StickyNoteViewModel();
-            noteViewModels.Add(newNote);
+            DialogResult = true;
+            SetDefaultColor();
+        }
 
-            this.Close();
+
+        private void ColorRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetColor();
+        }
+
+        public void SetColor()
+        {
+            var checkedValue = ColorStackPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.HasValue && r.IsChecked.Value);
+            var color = checkedValue.Background;
+
+            ViewModel.Color = color.ToString();
+        }
+
+        public void SetDefaultColor()
+        {
+            var checkedValue = ColorStackPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked.HasValue && r.IsChecked.Value);
+
+            if (checkedValue == null && ViewModel.Color == null)
+            {
+                ViewModel.Color = "#FFFFFF";
+            }
         }
     }
 }
