@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:UserControl="clr-namespace:StickyNotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1300" Background="#d2e6fa">
+        Title="MainWindow" Height="450" Width="900" Background="#d2e6fa">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -102,11 +102,11 @@
                             </Grid.ColumnDefinitions>
 
                             <Viewbox>
-                                <WrapPanel Width="1025">
+                                <WrapPanel Width="600">
                                     <ItemsControl ItemsSource="{Binding StickyNotesListFirstSkipped}">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <UniformGrid Columns="5" />
+                                                <UniformGrid Columns="3" />
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
 
