@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StickyNotes" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:UserControl="clr-namespace:StickyNotes"
         mc:Ignorable="d"
-        Title="Sticky Notes Application" Height="500" Width="1000" Background="#d2e6fa">
+        Title="Sticky Notes Application" Height="500" Width="1000" Background="#7fb3e5">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,10 +21,10 @@
             <GroupBox.Header>
                 <DockPanel>
                     <iconPacks:PackIconBootstrapIcons Kind="Stickies" Height="25" Width="25" VerticalAlignment="Center" Foreground="White" Margin="10,0,10,0" />
-                    <TextBlock Text="Sticky Notes" FontSize="22" Foreground="White"/>
-                    <Button x:Name="AddNewNoteButton" Margin="1" Background="White" Width="35" HorizontalAlignment="Right" ToolTip="Add a New Sticky Note" ToolTipService.InitialShowDelay="0" Click="AddNewNoteButton_Click">
+                    <TextBlock Text="Sticky Notes" FontSize="22" Foreground="White" Margin="0" Height="32" Width="118"/>
+                    <Button x:Name="AddNewNoteButton" Margin="10" Background="White" BorderThickness="0" Width="35" HorizontalAlignment="Right" ToolTip="Add a New Sticky Note" ToolTipService.InitialShowDelay="0" Click="AddNewNoteButton_Click">
                         <DockPanel>
-                            <iconPacks:PackIconBootstrapIcons Kind="Plus" HorizontalAlignment="Center" Height="15" Width="15" Margin="8" Foreground="#0565b1" />
+                            <iconPacks:PackIconBootstrapIcons Kind="Plus" HorizontalAlignment="Right" Height="15" Width="15" Margin="8" Foreground="#7fb3e5" />
                         </DockPanel>
                     </Button>
                 </DockPanel>
